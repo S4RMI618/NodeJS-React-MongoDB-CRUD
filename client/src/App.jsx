@@ -1,13 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+import { AuthProvider } from "./context/authContext";
+import { TaskProvider } from "./context/TaskContext";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
-import { AuthProvider } from "./context/authContext";
 import HomePage from "./pages/HomePage";
 import TasksPage from "./pages/TasksPage";
 import TaskFormPage from "./pages/TaskFormPage";
 import ProfilePage from "./pages/ProfilePage";
-import { TaskProvider } from "./context/TaskContext";
+import Navbar from "./components/Navbar";
+
 
 import ProtectedRoute from "./ProtectedRoute";
 
@@ -16,6 +18,7 @@ function App() {
     <AuthProvider>
       <TaskProvider>
         <Router>
+          <Navbar/>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
