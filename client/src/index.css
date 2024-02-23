@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --primary-color: #f3c614;
+    --secondary-color: #353535;
+    --border-color: #2e2e2e;
+    --background-dark-color: #202020;
+    --background-dark-grey: #24272f;
+    --border-color-dark: #2d2d2d;
+    --white-color: #fff;
+    --font-light-color: #9ca0ac;
+    --font-dark-color: #313131;
+    --sidebar-dark-color: #191D2B;
+}
+
 body {
-    background-color:  #202020;
+    background-color: var(--background-dark-color) ;
 }
