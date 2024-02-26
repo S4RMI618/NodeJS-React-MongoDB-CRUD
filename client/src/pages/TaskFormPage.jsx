@@ -1,18 +1,34 @@
 import { useForm } from "react-hook-form";
 import { useTask } from "../context/TaskContext";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react"; 
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 function TaskFormPage() {
-  const { register, handleSubmit } = useForm();
-  const { createTask, tasks } = useTask();
+  const { register, handleSubmit, setValue } = useForm();
+  const { createTask, getTask, updateTask } = useTask();
   const navigate = useNavigate();
+  const params = useParams();
+
+  useEffect(() => {
+    async function loadTask() {
+      if (params.id) {
+        const task = await getTask(params.id.replace(/[{}]/g, ""));
+        console.log(task);
+        setValue("title", task.title) +
+          setValue("description", task.description);
+      }
+    }
+    loadTask();
+  }, []);
 
   const onSubmit = handleSubmit((data) => {
-    createTask(data);
-    navigate('/tasks')
+    if (params.id) {
+      updateTask(params.id.replace(/[{}]/g, ""), data);
+    } else {
+      createTask(data);
+    }
+    navigate("/tasks");
   });
-
 
   return (
     <main className="flex h-[calc(100vh-100px)] items-center justify-center">

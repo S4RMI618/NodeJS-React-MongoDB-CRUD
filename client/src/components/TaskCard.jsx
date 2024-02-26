@@ -8,7 +8,7 @@ function TaskCard({ task }) {
   const { deleteTask, updateTask } = useTask();
 
   return (
-    <div className="min-h-[25vh] mt-5 bg-zinc-700 max-w-lg w-full p-5 rounded-md">
+    <div className="min-h-[25vh] mt-5 bg-zinc-700 max-w-lg w-full p-5 rounded-md shadow-md">
       <header className="flex justify-between items-center">
         <h1 className="text-2xl text-zinc-100 font-semibold mb-2">
           {task.title}
