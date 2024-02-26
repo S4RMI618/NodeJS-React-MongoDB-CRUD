@@ -1,8 +1,7 @@
 import mongoose from "mongoose";
-
+import { dbURL } from "./config.js";
 
 export const connectDB = async () => {
-    const dbURL = "mongodb://127.0.0.1:27017/nrmdb";
     try {
         await mongoose.connect(dbURL);
         console.log(">>> connection established to database " + dbURL);
@@ -13,9 +12,6 @@ export const connectDB = async () => {
 }
 
 /* export function connectDB() {
-
-    const dbURL = "mongodb://127.0.0.1:27017/nrmdb";
-
     mongoose.connect(dbURL)
   .then(() => {
     console.log(">>> Conexión exitosa a la base de datos");
