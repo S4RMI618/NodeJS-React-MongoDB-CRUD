@@ -4,13 +4,13 @@ import cookieParser from 'cookie-parser'
 import authRoutes from './routes/auth.routes.js'
 import taskRoutes from './routes/task.routes.js'
 import cors from 'cors';
-import { clientURL } from './config.js';
+import { CLIENT_URL } from './config.js';
 
 
 const app = express()
 
 app.use(cors({
-    origin: clientURL,
+    origin: CLIENT_URL,
     credentials: true
 }));
 app.use(morgan('dev'));

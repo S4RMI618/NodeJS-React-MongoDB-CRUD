@@ -1,13 +1,13 @@
 import mongoose from "mongoose";
-import { dbURL } from "./config.js";
+import { DB_URL } from "./config.js";
 
 export const connectDB = async () => {
     try {
-        await mongoose.connect(dbURL);
-        console.log(">>> connection established to database " + dbURL);
+        await mongoose.connect(DB_URL);
+        console.log(">>> connection established to database ");
     }
     catch (error) {
-        console.log("< Error connecting to database" , error);
+        console.log("< Error connecting to database" , + dbURL);
     }
 }
 

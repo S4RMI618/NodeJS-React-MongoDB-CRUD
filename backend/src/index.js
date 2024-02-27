@@ -1,7 +1,7 @@
 import app from './app.js';
 import {connectDB} from './db.js';
-import { BackendPORT } from './config.js';
+import { BACKEND_PORT } from './config.js';
 
 connectDB();
-app.listen(BackendPORT)
-console.log('server on port', BackendPORT)
+app.listen(BACKEND_PORT)
+console.log('server on port', BACKEND_PORT)
